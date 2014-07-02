@@ -1,24 +1,34 @@
 package nz.co.yellow.emerge.beryllium.regression.tests;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import nz.co.yellow.autotest.utils.ObjectMap;
 import nz.co.yellow.emerge.beryllium.regression.maps.Maps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.ArrayList;
 
 /**
  * Created by weixy on 29/06/14.
  */
 public class YOLRegression01 {
 
-    WebDriver driver = new FirefoxDriver();
+    //WebDriver driver = new FirefoxDriver();
+    WebDriver driver;// = new ChromeDriver();
+
+    ObjectMap objectMap = new ObjectMap(Maps.getPath("yol.startpage.map"));
 
     @And("^Open Yellow Page$")
     public void Open_Yellow_Page() throws Throwable {
         // Express the Regexp above with the code you wish you had
-
+        //if (driver instanceof ChromeDriver) {
+            System.setProperty("webdriver.chrome.driver", "/Users/weixy/Documents/Dev/libs/selenium/chromedriver");
+        driver = new ChromeDriver();
+        //}
         driver.navigate().to("http://yellow.co.nz");
     }
 
@@ -27,10 +37,34 @@ public class YOLRegression01 {
         // Express the Regexp above with the code you wish you had
         String workingDir=System.getProperty("user.dir");
         System.out.println(workingDir);
-        //ObjectMap objectMap = new ObjectMap(workingDir + "/src/main/resources/nz.co.yellow.autotest.nz.co.yellow.emerge.axle.regression.beryllium/yol.startpage.map");
-        ObjectMap objectMap = new ObjectMap(Maps.getPath("yol.startpage.map"));
+
         By by = objectMap.getLocator("yol.search.what.input");
         WebElement element = driver.findElement(by);
         element.sendKeys("pizza");
+    }
+
+    @And("^Click White$")
+    public void Click_White() throws Throwable {
+        // Express the Regexp above with the code you wish you had
+        By by = objectMap.getLocator("yol.nav.white");
+        WebElement element = driver.findElement(by);
+        element.click();
+
+        String oldTab = driver.getWindowHandle();
+        ArrayList<String> newTabs = new ArrayList<String>(driver.getWindowHandles());
+        newTabs.remove(oldTab);
+        driver.switchTo().window(newTabs.get(0));
+        System.out.println("Focus on White page.");
+        WebElement inputWhat = driver.findElement(By.id("searchWhatField"));
+        inputWhat.sendKeys("Jim");
+        Thread.sleep(5000);
+        driver.close();
+        driver.switchTo().window(oldTab);
+        System.out.println("Back to Yellow page.");
+        WebElement inputWhere = driver.findElement(objectMap.getLocator("yol.search.where.input"));
+        inputWhere.sendKeys("New Zealand");
+        Thread.sleep(3000);
+        driver.close();
+
     }
 }

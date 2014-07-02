@@ -25,8 +25,9 @@ public class ObjectMap {
 
     public By getLocator(String elName) {
         String locator = properties.getProperty(elName);
-        String locatorType = locator.split(":")[0];
-        String locatorValue = locator.split(":")[1];
+        int index = locator.indexOf(":");
+        String locatorType = locator.substring(0, index);
+        String locatorValue = locator.substring(index + 1);
 
         By by = SeLocatorType.valueOf(locatorType).getLocator(locatorValue);
         return by;
