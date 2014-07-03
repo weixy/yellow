@@ -1,0 +1,13 @@
+yol.nav=id:navbar
+yol.nav.yellow=xpath://div[@id="yellowSites"]//a[@href="http://yellow.co.nz"]
+yol.nav.white=xpath://div[@id="yellowSites"]//a[contains(@href, "http://whitepages.co.nz")]
+yol.nav.menus=xpath://div[@id="yellowSites"]//a[@href="http://menus.co.nz"]
+yol.nav.call018=xpath://div[@id="yellowSites"]//a[@href="http://www.call018.co.nz"]
+
+yol.search=id:searchBlock
+yol.search.what.input=id:searchWhatField
+yol.search.where.input=id:searchWhereField
+yol.search.find.button=xpath://div[@id="searchButton"]/button
+
+
+
