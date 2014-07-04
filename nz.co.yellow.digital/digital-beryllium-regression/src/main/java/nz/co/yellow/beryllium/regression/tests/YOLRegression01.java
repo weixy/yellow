@@ -9,11 +9,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.ArrayList;
+import javax.inject.Inject;
 
 /**
  * Created by weixy on 29/06/14.
  */
 public class YOLRegression01 {
+
 
     //WebDriver driver = new FirefoxDriver();
     WebDriver driver;// = new ChromeDriver();
