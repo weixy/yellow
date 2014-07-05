@@ -1,5 +1,6 @@
 package nz.co.yellow.autotest.utils;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -31,9 +32,17 @@ public class YellowAutoTestContext {
         return p;
     }
 
+    @Bean
+    static public String printProperties(@Value("${beryllium.map.package}") String a) {
+
+        System.out.println(a);
+        return a;
+    }
+
     static Resource[] properties() {
         return new Resource[] {
-            new ClassPathResource("yellow.auto.properties")
+            new ClassPathResource("yellow.auto.properties"),
+            new ClassPathResource("selenium.properties")
         };
     }
 }

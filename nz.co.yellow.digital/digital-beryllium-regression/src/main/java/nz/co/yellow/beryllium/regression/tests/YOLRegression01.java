@@ -2,13 +2,11 @@ package nz.co.yellow.beryllium.regression.tests;
 
 import cucumber.api.java.en.And;
 import nz.co.yellow.autotest.utils.ObjectMap;
-import nz.co.yellow.autotest.utils.YellowAutoTestContext;
 import nz.co.yellow.autotest.utils.YellowSeleniumTestContext;
-import nz.co.yellow.beryllium.regression.maps.Maps;
+import nz.co.yellow.beryllium.maps.Maps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -62,13 +60,13 @@ public class YOLRegression01 {
         ArrayList<String> newTabs = new ArrayList<String>(driver.getWindowHandles());
         newTabs.remove(oldTab);
         driver.switchTo().window(newTabs.get(0));
-        System.out.println("Focus on White page.");
+        System.out.println("Focus on White pages.");
         WebElement inputWhat = driver.findElement(By.id("searchWhatField"));
         inputWhat.sendKeys("Jim");
         Thread.sleep(5000);
         driver.close();
         driver.switchTo().window(oldTab);
-        System.out.println("Back to Yellow page.");
+        System.out.println("Back to Yellow pages.");
         WebElement inputWhere = driver.findElement(objectMap.getLocator("yol.search.where.input"));
         inputWhere.sendKeys("New Zealand");
         Thread.sleep(3000);

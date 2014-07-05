@@ -1,4 +1,4 @@
-package nz.co.yellow.beryllium.regression.maps;
+package nz.co.yellow.beryllium.maps;
 
 /**
  * Created by weixy on 1/07/14.
