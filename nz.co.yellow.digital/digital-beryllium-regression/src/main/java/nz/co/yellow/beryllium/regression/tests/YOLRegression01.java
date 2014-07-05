@@ -2,11 +2,15 @@ package nz.co.yellow.beryllium.regression.tests;
 
 import cucumber.api.java.en.And;
 import nz.co.yellow.autotest.utils.ObjectMap;
+import nz.co.yellow.autotest.utils.YellowAutoTestContext;
+import nz.co.yellow.autotest.utils.YellowSeleniumTestContext;
 import nz.co.yellow.beryllium.regression.maps.Maps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.stereotype.Component;
+import org.springframework.test.context.ContextConfiguration;
 
 import java.util.ArrayList;
 import javax.inject.Inject;
@@ -14,10 +18,13 @@ import javax.inject.Inject;
 /**
  * Created by weixy on 29/06/14.
  */
+@ContextConfiguration(classes = {YellowSeleniumTestContext.class})
+@Component
 public class YOLRegression01 {
 
 
     //WebDriver driver = new FirefoxDriver();
+    @Inject
     WebDriver driver;// = new ChromeDriver();
 
     ObjectMap objectMap = new ObjectMap(Maps.getPath("yol.startpage.map"));
@@ -26,8 +33,8 @@ public class YOLRegression01 {
     public void Open_Yellow_Page() throws Throwable {
         // Express the Regexp above with the code you wish you had
         //if (driver instanceof ChromeDriver) {
-            System.setProperty("webdriver.chrome.driver", "/Users/weixy/Documents/Dev/libs/selenium/chromedriver");
-        driver = new ChromeDriver();
+        //System.setProperty("webdriver.chrome.driver", "/Users/weixy/Documents/Dev/libs/selenium/chromedriver");
+        //driver = new ChromeDriver();
         //}
         driver.navigate().to("http://yellow.co.nz");
     }
@@ -50,6 +57,7 @@ public class YOLRegression01 {
         WebElement element = driver.findElement(by);
         element.click();
 
+        Thread.sleep(3000);
         String oldTab = driver.getWindowHandle();
         ArrayList<String> newTabs = new ArrayList<String>(driver.getWindowHandles());
         newTabs.remove(oldTab);
