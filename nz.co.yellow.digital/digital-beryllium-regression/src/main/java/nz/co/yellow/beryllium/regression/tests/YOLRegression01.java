@@ -1,8 +1,9 @@
 package nz.co.yellow.beryllium.regression.tests;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import nz.co.yellow.autotest.utils.ObjectMap;
-import nz.co.yellow.autotest.utils.YellowSeleniumTestContext;
+import nz.co.yellow.autotest.spring.YellowSeleniumTestContext;
+import nz.co.yellow.autotest.utils.*;
 import nz.co.yellow.beryllium.maps.Maps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,25 +22,21 @@ import javax.inject.Inject;
 public class YOLRegression01 {
 
 
-    //WebDriver driver = new FirefoxDriver();
     @Inject
-    WebDriver driver;// = new ChromeDriver();
+    WebDriver driver;
+
+    @Inject
+    WaitForLoadingAspect waitForLoadingAspect;
 
     ObjectMap objectMap = new ObjectMap(Maps.getPath("yol.startpage.map"));
 
     @And("^Open Yellow Page$")
     public void Open_Yellow_Page() throws Throwable {
-        // Express the Regexp above with the code you wish you had
-        //if (driver instanceof ChromeDriver) {
-        //System.setProperty("webdriver.chrome.driver", "/Users/weixy/Documents/Dev/libs/selenium/chromedriver");
-        //driver = new ChromeDriver();
-        //}
         driver.navigate().to("http://yellow.co.nz");
     }
 
     @And("^Input What$")
     public void Input_What() throws Throwable {
-        // Express the Regexp above with the code you wish you had
         String workingDir=System.getProperty("user.dir");
         System.out.println(workingDir);
 
@@ -50,27 +47,34 @@ public class YOLRegression01 {
 
     @And("^Click White$")
     public void Click_White() throws Throwable {
-        // Express the Regexp above with the code you wish you had
         By by = objectMap.getLocator("yol.nav.white");
         WebElement element = driver.findElement(by);
         element.click();
+    }
 
-        Thread.sleep(3000);
+    @WaitForLoading
+    @And("^Input Who$")
+    public void Input_Who() throws Throwable {
         String oldTab = driver.getWindowHandle();
         ArrayList<String> newTabs = new ArrayList<String>(driver.getWindowHandles());
         newTabs.remove(oldTab);
         driver.switchTo().window(newTabs.get(0));
+        // Express the Regexp above with the code you wish you had
         System.out.println("Focus on White pages.");
         WebElement inputWhat = driver.findElement(By.id("searchWhatField"));
         inputWhat.sendKeys("Jim");
-        Thread.sleep(5000);
         driver.close();
         driver.switchTo().window(oldTab);
+    }
+
+    @WaitForLoading(timeOutInSeconds = 3, waitMilliSeconds = 500)
+    @And("^Back to Yellow$")
+    public void Back_to_Yellow() throws Throwable {
+        // Express the Regexp above with the code you wish you had
         System.out.println("Back to Yellow pages.");
         WebElement inputWhere = driver.findElement(objectMap.getLocator("yol.search.where.input"));
         inputWhere.sendKeys("New Zealand");
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         driver.close();
-
     }
 }

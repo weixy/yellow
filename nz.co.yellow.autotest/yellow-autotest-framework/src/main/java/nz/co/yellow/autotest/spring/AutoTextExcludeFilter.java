@@ -1,4 +1,4 @@
-package nz.co.yellow.autotest.utils;
+package nz.co.yellow.autotest.spring;
 
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;

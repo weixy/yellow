@@ -1,4 +1,4 @@
-package nz.co.yellow.autotest.utils;
+package nz.co.yellow.autotest.spring;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
@@ -14,7 +14,7 @@ import org.springframework.core.io.Resource;
 @Configuration
 @ComponentScan(
         basePackages = {"nz.co.yellow"},
-        nameGenerator = AnnotationBeanNameGenerator.class,
+        nameGenerator = FullyQualifiedBeanNameGenerator.class,
         excludeFilters = {
                 @Filter(type = FilterType.CUSTOM, value = AutoTextExcludeFilter.class)
         }
