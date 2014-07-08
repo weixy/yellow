@@ -1,11 +1,14 @@
 package nz.co.yellow.autotest.spring;
 
+import nz.co.yellow.autotest.utils.WaitForLoadingAspect;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+
+import javax.inject.Inject;
 
 /**
  * Created by weixy on 5/07/14.
@@ -19,6 +22,8 @@ import org.springframework.core.io.Resource;
                 @Filter(type = FilterType.CUSTOM, value = AutoTextExcludeFilter.class)
         }
 )
+@Import(YellowSeleniumTestContext.class)
+@EnableAspectJAutoProxy
 
 public class YellowAutoTestContext {
 
@@ -35,7 +40,7 @@ public class YellowAutoTestContext {
     @Bean
     static public String printProperties(@Value("${beryllium.map.package}") String a) {
 
-        System.out.println(a);
+        //System.out.println(a);
         return a;
     }
 

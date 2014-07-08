@@ -10,13 +10,14 @@ import org.springframework.stereotype.Component;
  * Created by jim.wei@yellow.co.nz on 29/06/14.
  */
 @Component
-public class Page {
+public class SeUtils {
     public static boolean isLoaded(WebDriver driver) {
 
         return false;
     }
 
     public static void waitForLoading(WebDriver driver, Long timeOutInSeconds) {
+        System.out.println("WaitForLoading started ...");
         WebDriverWait driverWait = new WebDriverWait(driver, timeOutInSeconds);
         ExpectedCondition<Boolean> expectedCondition = new ExpectedCondition<Boolean>() {
             @Override

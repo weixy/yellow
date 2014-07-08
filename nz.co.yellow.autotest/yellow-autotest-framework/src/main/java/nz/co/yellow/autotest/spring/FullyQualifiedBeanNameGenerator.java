@@ -5,7 +5,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.AnnotationBeanNameGenerator;
 
 /**
- * Created by Y981821 on 7/07/2014.
+ * Created by jim.wei@yellow.co.nz on 29/06/14.
  */
 public class FullyQualifiedBeanNameGenerator extends AnnotationBeanNameGenerator {
     @Override

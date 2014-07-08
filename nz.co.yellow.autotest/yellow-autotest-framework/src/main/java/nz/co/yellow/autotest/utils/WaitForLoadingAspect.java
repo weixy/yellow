@@ -1,9 +1,11 @@
 package nz.co.yellow.autotest.utils;
 
-
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.openqa.selenium.WebDriver;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
@@ -18,9 +20,14 @@ public class WaitForLoadingAspect {
     @Inject
     private WebDriver webDriver;
 
+    @Pointcut("")
+    public void myPrint() {
+        System.out.println("MY Print");
+    }
+
     @Before("@annotation(waitForLoading)")
     public void waitFor(WaitForLoading waitForLoading) {
         System.out.println("Start to wait for page loaded ...");
-        Page.waitForLoading(webDriver, waitForLoading.timeOutInSeconds());
+        SeUtils.waitForLoading(webDriver, waitForLoading.value());
     }
 }

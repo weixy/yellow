@@ -1,8 +1,7 @@
-package nz.co.yellow.beryllium.regression.tests;
+package nz.co.yellow.beryllium.regression;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import nz.co.yellow.autotest.spring.YellowSeleniumTestContext;
+import nz.co.yellow.autotest.spring.YellowAutoTestContext;
 import nz.co.yellow.autotest.utils.*;
 import nz.co.yellow.beryllium.maps.Maps;
 import org.openqa.selenium.By;
@@ -17,16 +16,13 @@ import javax.inject.Inject;
 /**
  * Created by weixy on 29/06/14.
  */
-@ContextConfiguration(classes = {YellowSeleniumTestContext.class})
+@ContextConfiguration(classes = {YellowAutoTestContext.class})
 @Component
 public class YOLRegression01 {
 
 
     @Inject
     WebDriver driver;
-
-    @Inject
-    WaitForLoadingAspect waitForLoadingAspect;
 
     ObjectMap objectMap = new ObjectMap(Maps.getPath("yol.startpage.map"));
 
@@ -37,8 +33,8 @@ public class YOLRegression01 {
 
     @And("^Input What$")
     public void Input_What() throws Throwable {
-        String workingDir=System.getProperty("user.dir");
-        System.out.println(workingDir);
+        //String workingDir=System.getProperty("user.dir");
+        //System.out.println(workingDir);
 
         By by = objectMap.getLocator("yol.search.what.input");
         WebElement element = driver.findElement(by);
@@ -59,6 +55,7 @@ public class YOLRegression01 {
         ArrayList<String> newTabs = new ArrayList<String>(driver.getWindowHandles());
         newTabs.remove(oldTab);
         driver.switchTo().window(newTabs.get(0));
+        //SeUtils.waitForLoading(driver, (long) 5);
         // Express the Regexp above with the code you wish you had
         System.out.println("Focus on White pages.");
         WebElement inputWhat = driver.findElement(By.id("searchWhatField"));
@@ -67,7 +64,7 @@ public class YOLRegression01 {
         driver.switchTo().window(oldTab);
     }
 
-    @WaitForLoading(timeOutInSeconds = 3, waitMilliSeconds = 500)
+    @WaitForLoading(5)
     @And("^Back to Yellow$")
     public void Back_to_Yellow() throws Throwable {
         // Express the Regexp above with the code you wish you had

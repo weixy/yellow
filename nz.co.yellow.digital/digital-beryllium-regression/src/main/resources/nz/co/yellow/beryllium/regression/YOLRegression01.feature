@@ -4,4 +4,4 @@ Feature: Some Tests
     And Input What
     And Click White
     And Input Who
-    And Back to Yellow
+    #And Back to Yellow

@@ -11,6 +11,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface WaitForLoading {
-    long timeOutInSeconds() default 10;
-    long waitMilliSeconds() default 5000;
+    long value() default 10;
 }
