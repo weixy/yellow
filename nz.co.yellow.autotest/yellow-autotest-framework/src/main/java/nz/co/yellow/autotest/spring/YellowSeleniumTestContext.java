@@ -1,14 +1,10 @@
 package nz.co.yellow.autotest.spring;
 
-import com.sun.javafx.runtime.SystemProperties;
-import nz.co.yellow.autotest.utils.WaitForLoadingAspect;
 import nz.co.yellow.autotest.utils.WebDriverType;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.Import;
 
 /**
  * Created by weixy on 5/07/14.

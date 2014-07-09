@@ -27,4 +27,8 @@ public class SeUtils {
         };
         driverWait.until(expectedCondition);
     }
+
+    public static void initBrowsers() {
+        //TODO Clean cookies
+    }
 }

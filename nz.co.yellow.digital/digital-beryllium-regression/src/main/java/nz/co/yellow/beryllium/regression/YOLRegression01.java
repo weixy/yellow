@@ -1,6 +1,7 @@
 package nz.co.yellow.beryllium.regression;
 
 import cucumber.api.java.en.And;
+import nz.co.yellow.autotest.utils.WaitForLoading;
 import nz.co.yellow.autotest.spring.YellowAutoTestContext;
 import nz.co.yellow.autotest.utils.*;
 import nz.co.yellow.beryllium.maps.Maps;
