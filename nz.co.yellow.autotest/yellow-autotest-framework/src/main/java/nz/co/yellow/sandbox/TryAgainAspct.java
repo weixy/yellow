@@ -2,6 +2,7 @@ package nz.co.yellow.sandbox;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,8 +11,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class TryAgainAspct {
-    @Before("@annotation(TryAgain)")
-    public void tryAsp() {
+
+    @Before("@annotation(tryAgain)")
+    public void tryAsp(TryAgain tryAgain) {
         System.out.println("Aspect print ...");
     }
 }

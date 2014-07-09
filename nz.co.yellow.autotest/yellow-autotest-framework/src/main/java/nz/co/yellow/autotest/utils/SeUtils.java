@@ -17,11 +17,11 @@ public class SeUtils {
     }
 
     public static void waitForLoading(WebDriver driver, Long timeOutInSeconds) {
-        System.out.println("WaitForLoading started ...");
         WebDriverWait driverWait = new WebDriverWait(driver, timeOutInSeconds);
         ExpectedCondition<Boolean> expectedCondition = new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver webDriver) {
+                System.out.println("--- wait for loading ---");
                 return ((JavascriptExecutor)webDriver).executeScript("return document.readyState").equals("complete");
             }
         };

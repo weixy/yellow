@@ -7,7 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 /**
  * Created by Y981821 on 9/07/2014.
  */
-@ContextConfiguration(classes = {YellowAutoTestContext.class})
+//@ContextConfiguration(classes = {YellowAutoTestContext.class})
 @Component
 public class ScriptWithTryAgain {
 

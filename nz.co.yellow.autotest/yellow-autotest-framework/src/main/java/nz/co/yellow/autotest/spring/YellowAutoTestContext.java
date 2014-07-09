@@ -1,5 +1,7 @@
 package nz.co.yellow.autotest.spring;
 
+import nz.co.yellow.autotest.utils.WaitForLoading;
+import nz.co.yellow.sandbox.ScriptWithTryAgain;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
@@ -34,12 +36,18 @@ public class YellowAutoTestContext {
         return p;
     }
 
-    @Bean
-    static public String printProperties(@Value("${beryllium.map.package}") String a) {
+//    @Bean
+//    static public String printProperties(@Value("${beryllium.map.package}") String a) {
+//
+//        //System.out.println(a);
+//        return a;
+//    }
 
-        //System.out.println(a);
-        return a;
+    @Bean
+    static public ScriptWithTryAgain scriptWithTryAgain() {
+        return new ScriptWithTryAgain();
     }
+
 
     static Resource[] properties() {
         return new Resource[] {

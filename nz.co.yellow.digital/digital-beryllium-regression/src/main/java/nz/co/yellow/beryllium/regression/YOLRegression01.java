@@ -1,17 +1,16 @@
 package nz.co.yellow.beryllium.regression;
 
 import cucumber.api.java.en.And;
-import nz.co.yellow.autotest.utils.WaitForLoading;
 import nz.co.yellow.autotest.spring.YellowAutoTestContext;
 import nz.co.yellow.autotest.utils.*;
 import nz.co.yellow.beryllium.maps.Maps;
+import nz.co.yellow.beryllium.pages.BerylliumHomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.util.ArrayList;
 import javax.inject.Inject;
 
 /**
@@ -24,6 +23,9 @@ public class YOLRegression01 {
 
     @Inject
     WebDriver driver;
+
+    @Inject
+    BerylliumHomePage berylliumHomePage;
 
     ObjectMap objectMap = new ObjectMap(Maps.getPath("yol.startpage.map"));
 
@@ -44,28 +46,16 @@ public class YOLRegression01 {
 
     @And("^Click White$")
     public void Click_White() throws Throwable {
-        By by = objectMap.getLocator("yol.nav.white");
-        WebElement element = driver.findElement(by);
-        element.click();
+        berylliumHomePage.switchToWhite();
     }
 
-    @WaitForLoading
     @And("^Input Who$")
     public void Input_Who() throws Throwable {
-        String oldTab = driver.getWindowHandle();
-        ArrayList<String> newTabs = new ArrayList<String>(driver.getWindowHandles());
-        newTabs.remove(oldTab);
-        driver.switchTo().window(newTabs.get(0));
-        //SeUtils.waitForLoading(driver, (long) 5);
-        // Express the Regexp above with the code you wish you had
+
         System.out.println("Focus on White pages.");
-        WebElement inputWhat = driver.findElement(By.id("searchWhatField"));
-        inputWhat.sendKeys("Jim");
-        driver.close();
-        driver.switchTo().window(oldTab);
+        berylliumHomePage.checkWhite();
     }
 
-    @WaitForLoading(5)
     @And("^Back to Yellow$")
     public void Back_to_Yellow() throws Throwable {
         // Express the Regexp above with the code you wish you had

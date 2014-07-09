@@ -25,7 +25,6 @@ public class WaitForLoadingAspect {
 
     @Before("@annotation(waitForLoading)")
     public void waitFor(WaitForLoading waitForLoading) {
-        System.out.println("Start to wait for page loaded ...");
         SeUtils.waitForLoading(webDriver, waitForLoading.value());
     }
 }
