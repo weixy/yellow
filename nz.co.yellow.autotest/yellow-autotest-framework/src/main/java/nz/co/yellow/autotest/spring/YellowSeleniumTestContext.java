@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class YellowSeleniumTestContext {
     @Bean(destroyMethod = "quit")
-    public WebDriver loadWebDriver(@Value("${webdriver:chrome}")String webDriver) {
+    public WebDriver loadWebDriver(@Value("${web.driver:chrome}")String webDriver) {
         return WebDriverType.valueOf(webDriver).getWebDriver();
     }
 }
