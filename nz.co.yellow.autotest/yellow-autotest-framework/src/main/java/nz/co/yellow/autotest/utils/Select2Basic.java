@@ -12,21 +12,26 @@ import java.util.List;
  */
 public class Select2Basic {
 
-    WebElement inputBox;
-    WebElement anchor;
-    WebElement anchor_arrow;
-    WebElement anchor_chosen;
+    protected WebElement inputBox;
+    protected WebElement anchor;
+    protected WebElement anchor_arrow;
+    protected WebElement anchor_chosen;
 
-    WebElement drop;
-    WebElement drop_search_input;
-    List<WebElement> drop_option_list;
+    protected WebElement drop;
+    protected WebElement drop_search_input;
+    protected List<WebElement> drop_option_list;
 
     boolean isExpanded;
 
+    public Select2Basic() {
+
+    }
+
     public Select2Basic(WebElement input) {
         SeUtils.scrollElement(input);
+        String id = input.getAttribute("id");
         inputBox = input;
-        anchor = input.findElement(By.xpath("//input[@id='s2id_autogen1']/parent::div/child::a"));
+        anchor = input.findElement(By.xpath("//input[@id='" + id +"']/parent::div/child::a"));
         anchor_chosen = anchor.findElement(By.xpath(".//span[contains(@class, 'select2-chosen')]"));
         anchor_arrow = anchor.findElement(By.xpath(".//span[contains(@class, 'select2-arrow')]"));
 
@@ -69,18 +74,19 @@ public class Select2Basic {
         expandOptions();
         for (Iterator<WebElement> i = drop_option_list.iterator(); i.hasNext();) {
             WebElement option = i.next();
-            WebElement span = option.findElement();
+            WebElement span = option.findElement(By.xpath(".//span"));
             if (option.getText().equalsIgnoreCase(optionText)) {
                 option.click();
+                break;
             }
         }
     }
 
-    private List<WebElement> getAllOptions(WebElement dropOptions) {
+    protected List<WebElement> getAllOptions(WebElement dropOptions) {
         return dropOptions.findElements(By.xpath("./descendant::li[contains(@class, 'select2-result')]"));
     }
 
-    private List<WebElement> getAvailableOptions(WebElement dropOptions) {
+    protected List<WebElement> getAvailableOptions(WebElement dropOptions) {
         return dropOptions.findElements(By.xpath("./descendant::li[contains(@class, 'select2-result-selectable')]"));
     }
 

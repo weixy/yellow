@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 /**
@@ -40,6 +41,12 @@ public enum WebDriverType {
         @Override
         public WebDriver getWebDriver() {
             return new HtmlUnitDriver();
+        }
+    },
+    phantomjs {
+        @Override
+        public WebDriver getWebDriver() {
+            return new PhantomJSDriver();
         }
     };
 

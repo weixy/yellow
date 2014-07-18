@@ -22,7 +22,18 @@ public class Select2Page {
 
         Select2Basic select = new Select2Basic(driver.findElement(By.id("s2id_autogen1")));
         select.selectOption("Hawaii");
-        Thread.sleep(100000);
+
+        Select2MultiValue selectMultiValue = new Select2MultiValue(driver.findElement(By.id("s2id_autogen7")));
+        selectMultiValue.selectOption("California");
+        selectMultiValue.selectOption("Washington");
+
+        selectMultiValue.selectOptions(new String[] {"New Mexico", "Texas"});
+
+        Thread.sleep(5000);
+
+        selectMultiValue.removeChoice("Washington");
+
+        Thread.sleep(10000);
     }
 
 }
