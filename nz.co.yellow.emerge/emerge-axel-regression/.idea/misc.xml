@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/../../nz.co.yellow.autotest/yellow-autotest-framework/pom.xml" />
         <option value="$PROJECT_DIR$/../../nz.co.yellow.composit/yellow-composit-selenium/pom.xml" />
         <option value="$PROJECT_DIR$/../../nz.co.yellow.digital/digital-beryllium-selenium/pom.xml" />
+        <option value="$PROJECT_DIR$/../../nz.co.yellow.autotest/sandbox-widgets-test/pom.xml" />
       </list>
     </option>
   </component>

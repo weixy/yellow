@@ -1,4 +1,4 @@
-axle.com.navi.menupane=id:page.menu
-axle.com.navi.menuitem<name>=xpath:.//*[normalize-space(text())='<name>']
-axle.com.sidebar.toggle=classname:toggleIcon
-axle.com.select.drop.options=xpath://ul[contains(@class,"select2-result") and descendant::li]
+axle.navi.pane=id:page.menu
+axle.navi.item=xpath:#axle.navi.pane#//*[normalize-space(text())='<name>']
+axle.sidebar.toggle=classname:toggleIcon
+axle.select.drop.options=xpath://ul[contains(@class,"select2-result") and descendant::li]
