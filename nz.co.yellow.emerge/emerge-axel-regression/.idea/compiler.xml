@@ -22,12 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="digital-beryllium-regression" />
-        <module name="digital-beryllium-selenium" />
-        <module name="emerge-axel-regression" />
         <module name="emerge-beryllium-regression" />
-        <module name="yellow-composit-cucumber" />
-        <module name="yellow-composit-spring3" />
       </profile>
     </annotationProcessing>
   </component>
