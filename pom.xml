@@ -8,5 +8,8 @@
 	<modules>
 		<module>nz.co.yellow.autotest/yellow-autotest-framework</module>
 		<module>nz.co.yellow.autotest/sandbox-widgets-test</module>
+		<module>nz.co.yellow.composit/yellow-composit-cucumber</module>
+		<module>nz.co.yellow.composit/yellow-composit-selenium</module>
+		<module>nz.co.yellow.composit/yellow-composit-spring3</module>
 	</modules>
 </project>
