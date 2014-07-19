@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>nz.co.yellow.parent</groupId>
+	<artifactId>yellow-parent</artifactId>
+	<version>1</version>
+
+	<modules>
+		<module>nz.co.yellow.autotest/yellow-autotest-framework</module>
+		<module>nz.co.yellow.autotest/sandbox-widgets-test</module>
+	</modules>
+</project>
