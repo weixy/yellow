@@ -26,8 +26,6 @@
         <module name="digital-beryllium-selenium" />
         <module name="emerge-axel-regression" />
         <module name="emerge-beryllium-regression" />
-        <module name="sandbox-widgets-test" />
-        <module name="yellow-autotest-framework" />
         <module name="yellow-composit-cucumber" />
         <module name="yellow-composit-spring3" />
       </profile>
