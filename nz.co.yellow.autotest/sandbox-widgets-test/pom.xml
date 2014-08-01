@@ -34,9 +34,6 @@
                         <exclude>**/*ComponentTest.java</exclude>
                         <exclude>**/*FunctionalTest.java</exclude>
                     </excludes>
-                    <systemPropertyVariables>
-                        <buildDirectory>${project.build.directory}</buildDirectory>
-                    </systemPropertyVariables>
                 </configuration>
                 <executions>
                     <execution>
