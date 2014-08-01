@@ -13,7 +13,7 @@
     <groupId>nz.co.yellow.composit</groupId>
     <artifactId>yellow-composit-spring3</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
 

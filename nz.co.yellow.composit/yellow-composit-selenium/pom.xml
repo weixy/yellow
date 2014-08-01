@@ -10,7 +10,7 @@
     <modules>
         <module>../yellow-composit-spring3</module>
     </modules>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
 
