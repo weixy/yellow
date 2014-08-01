@@ -29,7 +29,7 @@
                         <id>validate-contract-version</id>
                         <phase>validate</phase>
                         <goals>
-                            <goal>test</goal>
+                            <goal>enforce</goal>
                         </goals>
                         <configuration>
                             <skipTests>false</skipTests>
