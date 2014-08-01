@@ -23,30 +23,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
+                <version>1.3.1</version>
                 <executions>
                     <execution>
                         <id>validate-contract-version</id>
                         <phase>validate</phase>
                         <goals>
-                            <goal>enforce</goal>
+                            <goal>test</goal>
                         </goals>
                         <configuration>
-                            <rules>
-                                <requireProperty>
-                                    <property>yellow.contract.version</property>
-                                    <message>
-                                        You must specify a property yellow.contract.version like v1 or v2 or v3, etc
-                                    </message>
-                                    <regex>v[0-9]+</regex>
-                                </requireProperty>
-                                <requireProperty>
-                                    <property>debian.architecture</property>
-                                    <message>
-                                        You must specify a property debian.arhitecture like all or amd64
-                                    </message>
-                                    <regex>amd64|all</regex>
-                                </requireProperty>
-                            </rules>
+                            <skipTests>false</skipTests>
                         </configuration>
                     </execution>
                 </executions>
