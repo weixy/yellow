@@ -23,6 +23,10 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="emerge-beryllium-regression" />
+        <module name="yellow-autotest-framework" />
+        <module name="yellow-composit-cucumber" />
+        <module name="yellow-composit-selenium" />
+        <module name="yellow-composit-spring3" />
       </profile>
     </annotationProcessing>
   </component>

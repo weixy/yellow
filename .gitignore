@@ -1,7 +1,4 @@
 *.iml
-nz.co.yellow.emerge/emerge-axel-regression/.idea/workspace.xml
 target/
 classes/
-nz.co.yellow.emerge/emerge-axel-regression/.idea/modules.xml
-
-nz.co.yellow.emerge/emerge-axel-regression/.idea/compiler.xml
+.idea/
